@@ -1,8 +1,7 @@
 # Hitman
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hitman`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Hitman is an automatic API fuzzer written in Ruby. It might auto analyse your API and test it. Or, if you're unlucky,
+you need to define a target it will attack. 
 
 ## Installation
 
@@ -22,7 +21,8 @@ Or install it yourself as:
 
 ## Usage
 
-At the moment, Hitman can only auto-analyse Grape APIs, but if you have any other API, you can still use it by supplying the configuration manually.
+At the moment, Hitman can only auto-analyse Grape APIs, but if you have any other API, you
+can still use it by supplying the configuration manually.
 
 First, define a target to attack. It is best to run your API locally, for speed reasons.
 
@@ -32,13 +32,15 @@ t = Hitman::Target.new('my api', 'http://localhost:9292')
 
 Hitman needs the name and the address of its target. He's gonna find out the rest. No need for a picture.
 
-If your API uses param authentication, you can supply `postfix` data which will be attached to every request made, e.g. if you need to authenticate:
+If your API uses param authentication, you can supply `postfix` data which will be attached to
+every request made, e.g. if you need to authenticate:
 
 ```ruby
 t.postfix = { email: 'test@hitman.org', password: '12345678' }
 ```
 
-Hitman first needs to analyse the target to find the best possible strategy to attack. Load your API class and pass it, along with a reference to your target, to Hitman:
+Hitman first needs to analyse the target to find the best possible strategy to attack. Load your API
+class and pass it, along with a reference to your target, to Hitman:
 
 ```ruby
 scanner = Hitman::Scanner.new
@@ -88,10 +90,14 @@ After that, you're ready to run the Fuzzer.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console`
+for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version,
+update the version number in `version.rb`, and then run `bundle exec rake release`, which will create
+a git tag for the version, push git commits and tags, and push the `.gem` file
+to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hitman.
+Bug reports and pull requests are welcome on GitHub at https://github.com/LukasSkywalker/hitman.
